@@ -1,35 +1,21 @@
-# kobalte
+# @kobalte/core
 
-[![workflow-badge]](https://github.com/fabien-ml/kobalte/actions/workflows/ci.yaml) [![license-badge]](https://github.com/fabien-ml/kobalte#license)
+Unstyled components and primitives for building accessible web apps and design systems with SolidJS.
 
-[workflow-badge]: https://img.shields.io/github/workflow/status/fabien-ml/kobalte/CI
-[license-badge]: https://img.shields.io/github/license/fabien-ml/kobalte
+## Installation
 
-> :warning: This project is not available yet on npm.
-
-A UI toolkit for building accessible web apps and design systems with SolidJS.
-
-## Packages
-
-| Name                                          |                                 Version                                  | Description                                                                                                        |
-| :-------------------------------------------- | :----------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------- |
-| [@kobalte/elements](/packages/elements)       |    [![elements-npm]](https://www.npmjs.com/package/@kobalte/elements)    | Unstyled components and primitives for building accessible web apps and design systems.                            |
-| [@kobalte/tailwindcss](/packages/tailwindcss) | [![tailwindcss-npm]](https://www.npmjs.com/package/@kobalte/tailwindcss) | A TailwindCSS plugin for styling Kobalte Elements with `data-*` attributes by using modifiers like `ui-expanded:*` |
-
-[elements-npm]: https://img.shields.io/npm/v/@kobalte/elements
-[tailwindcss-npm]: https://img.shields.io/npm/v/@kobalte/tailwindcss
+```bash
+npm install @kobalte/core
+# or
+yarn add @kobalte/core
+# or
+pnpm add @kobalte/core
+```
 
 ## Documentation
 
 For full documentation, visit [kobalte.dev](https://kobalte.dev/).
 
-## Acknowledgment
+## Changelog
 
-- [Ariakit](https://ariakit.org/)
-- [Radix UI](https://www.radix-ui.com/)
-- [React Aria](https://react-spectrum.adobe.com/react-aria/)
-- [Zag](https://zagjs.com/)
-
-## License
-
-This project is licensed under the MIT License.
+All notable changes are described in the [CHANGELOG.md](./CHANGELOG.md) file.
