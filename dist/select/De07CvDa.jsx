@@ -77,6 +77,8 @@ function SelectContent(props) {
 	createEffect(() => context.contentPresent() && !context.isModal(), (isNonModalAndPresent) => {
 		if (!isNonModalAndPresent) return;
 		return () => {
+			const contentEl = ref();
+			if (!contentEl || !contentEl.contains(document.activeElement)) return;
 			onFinalFocus(new CustomEvent("selectCloseAutoFocus", {
 				bubbles: false,
 				cancelable: true
