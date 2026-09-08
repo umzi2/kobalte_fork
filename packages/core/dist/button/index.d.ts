@@ -1,0 +1,2 @@
+import { a as ButtonRootOptions, i as ButtonRootCommonProps, o as ButtonRootProps, r as ButtonRoot, s as ButtonRootRenderProps, t as Button } from "../index/Bjp2qtUK.js";
+export { Button, type ButtonRootCommonProps, type ButtonRootOptions, type ButtonRootProps, type ButtonRootRenderProps, ButtonRoot as Root };

@@ -1,0 +1,2 @@
+import { a as SeparatorRootOptions, i as SeparatorRootCommonProps, o as SeparatorRootProps, r as SeparatorRoot, s as SeparatorRootRenderProps, t as Separator } from "../index/D5H2Dwz2.js";
+export { SeparatorRoot as Root, Separator, type SeparatorRootCommonProps, type SeparatorRootOptions, type SeparatorRootProps, type SeparatorRootRenderProps };

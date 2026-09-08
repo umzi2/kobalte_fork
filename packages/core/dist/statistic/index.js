@@ -1,0 +1,2 @@
+import { a as STATISTIC_INTL_TRANSLATIONS, c as StatisticDescription, i as StatisticTrend, l as useStatisticContext, o as StatisticRoot, r as StatisticValue, s as StatisticLabel, t as Statistic } from "./DOty1rQx.js";
+export { StatisticDescription as Description, StatisticLabel as Label, StatisticRoot as Root, STATISTIC_INTL_TRANSLATIONS, Statistic, StatisticTrend as Trend, StatisticValue as Value, useStatisticContext };

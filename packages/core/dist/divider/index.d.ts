@@ -1,0 +1,2 @@
+import { a as DividerRootOptions, i as DividerRootCommonProps, o as DividerRootProps, r as DividerRoot, s as DividerRootRenderProps, t as Divider } from "../index/C2-YWY10.js";
+export { Divider, type DividerRootCommonProps, type DividerRootOptions, type DividerRootProps, type DividerRootRenderProps, DividerRoot as Root };

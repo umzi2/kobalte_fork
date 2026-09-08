@@ -1,0 +1,2 @@
+import { a as SwitchLabel, c as SwitchDescription, i as SwitchRoot, l as SwitchControl, o as SwitchInput, r as SwitchThumb, s as SwitchErrorMessage, t as Switch, u as useSwitchContext } from "./BR-ES-F1.js";
+export { SwitchControl as Control, SwitchDescription as Description, SwitchErrorMessage as ErrorMessage, SwitchInput as Input, SwitchLabel as Label, SwitchRoot as Root, Switch, SwitchThumb as Thumb, useSwitchContext };
