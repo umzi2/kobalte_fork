@@ -40,12 +40,20 @@ export function PopperPositioner<T extends ValidComponent = "div">(
 	return (
 		<Polymorphic<PopperPositionerRenderProps>
 			as="div"
-			ref={
-				[
-					context.setPositionerRef,
-					props.ref as (el: HTMLElement) => void,
-				] as any
-			}
+			ref={[
+				(el: HTMLElement) => {
+					context.setPositionerRef(el);
+					// The tracked effect that normally starts positioning can
+					// miss this ref write when it happens inside a render
+					// computation (@solidjs/signals 2.0.0-rc.6 owned-scope
+					// semantics), leaving the first-open positioner at
+					// `top: 0; left: 0`. Ask for a positioning pass directly
+					// once the element is in the DOM; `startUpdates` is a
+					// no-op if the effect already handled this element.
+					queueMicrotask(() => context.startUpdates());
+				},
+				props.ref as (el: HTMLElement) => void,
+			]}
 			data-popper-positioner=""
 			style={combineStyle(
 				{
