@@ -1,0 +1,2 @@
+import { a as SkeletonRootOptions, i as SkeletonRootCommonProps, o as SkeletonRootProps, r as Skeleton, s as SkeletonRootRenderProps, t as Skeleton$1 } from "../index/D7x4R4iE.js";
+export { Skeleton as Root, Skeleton$1 as Skeleton, type SkeletonRootCommonProps, type SkeletonRootOptions, type SkeletonRootProps, type SkeletonRootRenderProps };

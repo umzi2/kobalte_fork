@@ -1,0 +1,2 @@
+import { a as PaginationNext, c as usePaginationContext, i as PaginationPrevious, l as PaginationEllipsis, o as PaginationItems, r as PaginationRoot, s as PaginationItem, t as Pagination } from "./DoMlZxHp.js";
+export { PaginationEllipsis as Ellipsis, PaginationItem as Item, PaginationItems as Items, PaginationNext as Next, Pagination, PaginationPrevious as Previous, PaginationRoot as Root, usePaginationContext };

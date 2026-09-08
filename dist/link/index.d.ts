@@ -1,0 +1,2 @@
+import { a as LinkRootOptions, i as LinkRootCommonProps, o as LinkRootProps, r as LinkRoot, s as LinkRootRenderProps, t as Link } from "../index/DnbLVAWR.js";
+export { Link, type LinkRootCommonProps, type LinkRootOptions, type LinkRootProps, type LinkRootRenderProps, LinkRoot as Root };

@@ -1,0 +1,2 @@
+import { a as PolymorphicAttributes, i as Polymorphic, n as OverrideComponentProps, o as PolymorphicCallbackProps, r as OverrideProps, s as PolymorphicProps, t as ElementOf } from "../index/CFIwL2Gi.js";
+export { ElementOf, OverrideComponentProps, OverrideProps, Polymorphic, PolymorphicAttributes, PolymorphicCallbackProps, PolymorphicProps };
