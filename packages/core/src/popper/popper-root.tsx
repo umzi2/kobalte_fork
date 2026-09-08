@@ -139,8 +139,16 @@ export function PopperRoot(props: PopperRootProps) {
 		props,
 	);
 
-	const [positionerRef, setPositionerRef] = createSignal<HTMLElement>();
-	const [arrowRef, setArrowRef] = createSignal<HTMLElement>();
+	// `ownedWrite` is required under @solidjs/signals 2.0.0-rc.6: these refs
+	// are assigned from JSX ref callbacks that run inside render computations,
+	// where plain signal writes throw `[REACTIVE_WRITE_IN_OWNED_SCOPE]`.
+	const [positionerRef, setPositionerRef] = createSignal<HTMLElement>(
+		undefined,
+		{ ownedWrite: true },
+	);
+	const [arrowRef, setArrowRef] = createSignal<HTMLElement>(undefined, {
+		ownedWrite: true,
+	});
 
 	const [currentPlacement, setCurrentPlacement] = createSignal(
 		untrack(() => mergedProps.placement!),
@@ -327,21 +335,34 @@ export function PopperRoot(props: PopperRootProps) {
 			});
 		}
 	}
+	let startedFor: HTMLElement | undefined;
 
-	createTrackedEffect(() => {
+	/**
+	 * Starts the floating-ui auto-update loop for the CURRENT positioner
+	 * element (no-op when already started for it). Called both from the
+	 * tracked effect below and directly from the positioner's ref callback:
+	 * under @solidjs/signals 2.0.0-rc.6 the ref write can be missed by the
+	 * effect when it happens inside a render computation, which broke
+	 * positioning on the first open of a select/menu.
+	 */
+	function startUpdates() {
 		const referenceEl = anchorRef();
 		const floatingEl = positionerRef();
 
-		if (!referenceEl || !floatingEl) {
+		if (!referenceEl || !floatingEl || startedFor === floatingEl) {
 			return;
 		}
+
+		startedFor = floatingEl;
 
 		// https://floating-ui.com/docs/autoUpdate
 		return autoUpdate(referenceEl, floatingEl, updatePosition, {
 			// JSDOM doesn't support ResizeObserver
 			elementResize: typeof ResizeObserver === "function",
 		});
-	});
+	}
+	createTrackedEffect(startUpdates);
+
 
 	// Makes sure the positioner element has the same z-index as the popper content element,
 	// so users only need to set the z-index once.
@@ -359,6 +380,7 @@ export function PopperRoot(props: PopperRootProps) {
 		contentRef: () => mergedProps.contentRef?.(),
 		setPositionerRef,
 		setArrowRef,
+		startUpdates,
 	};
 
 	return <PopperContext value={context}>{mergedProps.children}</PopperContext>;
