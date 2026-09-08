@@ -148,6 +148,15 @@ export function SelectContent<T extends ValidComponent = "div">(
 			}
 
 			return () => {
+				// Only restore focus when it is still inside this content. A close
+				// triggered by interacting outside (e.g. opening another popover)
+				// must not yank focus back to the trigger, or the other popover's
+				// focus-out dismissal immediately closes it again.
+				const contentEl = ref();
+				if (!contentEl || !contentEl.contains(document.activeElement)) {
+					return;
+				}
+
 				onFinalFocus(
 					new CustomEvent("selectCloseAutoFocus", {
 						bubbles: false,
